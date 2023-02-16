@@ -5,11 +5,20 @@ var pal_sort = Math.floor(Math.random() * liPalavras.length);
 var palavraStr = liPalavras[pal_sort];
 var palavra = palavraStr.split('');
 var input = document.querySelector("#letra")
-let tentativas = 6;
+let tentativas = 8;
 let jogada = undefined;
 let espaco = [];
 var tela = document.getElementById("tela");
 var li = document.createElement("li");
+var head = document.getElementById("head")
+var torso = document.getElementById("torso")
+var leftarm = document.getElementById("leftarm")
+var rightarm = document.getElementById("rightarm")
+var leftleg = document.getElementById("leftleg")
+var leftfoot = document.getElementById("leftfoot")
+var rightleg = document.getElementById("rightleg")
+var rightfoot = document.getElementById("rightfoot")
+
 
 input.select()
 
@@ -67,26 +76,63 @@ function ganhou(){
     alert("Parabéns!! Você GANHOU!")
 }
 
+
 function main () {
     input.select()
     if(input.value == ""){
         alert("Não deixe o campo vazio.")
         return
     }
-    if (tentativas > 0){
+    if (tentativas > 1){
         jogada = input.value;
         verificar();
         console.log(espaco);
         if (JSON.stringify(espaco) === JSON.stringify(palavra)){
             console.log("GANHOU!!!!");
             setTimeout(ganhou, 430);
-            tentativas = 0;
+            tentativas = -1;
         }
     }
     else{
         console.log("Enforcou! PERDEU!");
         alert("Enforcou! PERDEU! Tente novamente.")
         restart()
+    }
+
+    if (tentativas == 8){
+        head.classList.remove("head")
+        torso.classList.remove("torso")
+        leftarm.classList.remove("leftarm")
+        rightarm.classList.remove("rightarm")
+        leftleg.classList.remove("leftleg")
+        leftfoot.classList.remove("leftfoot")
+        rightleg.classList.remove("rightleg")
+        rightfoot.classList.remove("rightfoot")
+
+    }
+    else if (tentativas == 7){
+        head.classList.add("head")
+    }
+    else if (tentativas == 6){
+        torso.classList.add("torso")
+    }
+    else if (tentativas == 5){
+        leftarm.classList.add("leftarm")
+    }
+    else if (tentativas == 4){
+        rightarm.classList.add("rightarm")
+    }
+    else if (tentativas == 3){
+        leftleg.classList.add("leftleg")
+    }
+    else if (tentativas == 2){
+        leftfoot.classList.add("leftfoot")
+    }
+    else if (tentativas == 1){
+        rightleg.classList.add("rightleg")
+    }
+    else if (tentativas == 0){
+        rightfoot.classList.add("rightfoot")
     }
  
 }
@@ -97,7 +143,7 @@ function restart() {
     pal_sort = Math.floor(Math.random() * liPalavras.length);
     palavraStr = liPalavras[pal_sort];
     palavra = palavraStr.split('');
-    tentativas = 6;
+    tentativas = 8;
     jogada = undefined;
     espaco = []
     espacoGerar();
