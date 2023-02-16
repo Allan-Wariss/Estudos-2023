@@ -1,7 +1,14 @@
-var liPalavras = ["ABACATE", "UVA", "BANANA", "ALLAN"];
+var liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
+"sucinto", "inferir", "apático", "acepção", "astucia", "redimir", "recesso", "estigma", "cultura", "refutar",
+"virtude", "cinismo", "exortar", "soberba", "trivial", "mitigar", "cordial", "aspecto", "imputar", "emergir",
+ "sucesso", "alegria", "deboche", "candura", "ademais", "excerto", "almejar", "orgulho", "contudo", "oriundo",
+"alcunha", "austero", "coragem", "salutar", "sensato", "quimera", "excesso", "fomento", "saudade", "escroto",
+"erudito", "modesto", "parcial", "conciso", "amizade", "colosso", "demanda",
+"padecer", "piedade", "racismo", "vigente", "emotivo", "intenso", "auferir", "exilado", "bizarro", "profano",
+"ansioso", "colapso"];
 var save = liPalavras
 var pal_sort = Math.floor(Math.random() * liPalavras.length);
-var palavraStr = liPalavras[pal_sort];
+var palavraStr = liPalavras[pal_sort].toUpperCase();
 var palavra = palavraStr.split('');
 var input = document.querySelector("#letra")
 let tentativas = 8;
@@ -140,7 +147,7 @@ function restart() {
     removeEspacosFront()
     liPalavras = save;
     pal_sort = Math.floor(Math.random() * liPalavras.length);
-    palavraStr = liPalavras[pal_sort];
+    palavraStr = liPalavras[pal_sort].toUpperCase();
     palavra = palavraStr.split('');
     tentativas = 8;
     jogada = undefined;
