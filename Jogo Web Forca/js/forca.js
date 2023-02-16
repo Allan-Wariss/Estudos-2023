@@ -1,5 +1,5 @@
 
-var liPalavras = ["ABACATI","UVA", "BANANA", "ALLAN"];
+var liPalavras = ["ABACATE","UVA", "BANANA", "ALLAN"];
 var save = liPalavras
 var pal_sort = Math.floor(Math.random() * liPalavras.length);
 var palavraStr = liPalavras[pal_sort];
