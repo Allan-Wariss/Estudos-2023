@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    align-items: center;
+
+}
+
+#tela{
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    gap: 5%;
+}
+
+ul{
+    display: flex;
+    font-weight: bold;
+    list-style: none;
+}
+
+#tela > li {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: crimson;
+    width: 4rem;
+    height: 4rem;
+    transition: 0.5s;
+}
+
+.verde{
+    background-color: rgb(0, 193, 29) !important;
+}
+
+#chutes{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+#chutes > label {
+    color: white;
+    font-weight: bold;
+}
+
+#letra{
+    color: rgb(0, 0, 0);
+    height: 1.7rem;
+    background-color: rgb(203, 132, 0);
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    border-bottom: 1px solid black ;
+    border-radius: 16px;
+    outline: 0;
+    transition: 0.4s;
+}
+
+#letra:focus{
+    color: black;
+    background-color: white;
+    border-bottom: 3px solid black ;
+    border-radius: 16px;
+}
+
+#chutes__tentar-button{
+    border: none;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(55, 0, 193);
+    border-radius: 16px;
+    padding: 0.5rem;
+    transition: 0.3s;
+}
+
+#chutes__tentar-button:hover{
+    background-color: rgb(72, 0, 255);
+    border-radius: 8px;
+}
+
+#chutes__tentar-button:active{
+    background-color: white;
+    transition: 0s;
+
+}
+
+#chutes__reniciar-button{
+    border: none;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(0, 193, 29);
+    border-radius: 18px;
+    padding: 0.5rem;
+    transition: 0.3s;
+}
+
+#chutes__reniciar-button:hover{
+    background-color: rgb(0, 226, 34);
+    border-radius: 8px;
+}
+
+#chutes__reniciar-button:active{
+    background-color: white;
+    transition: 0s;
+
+}
+
+@media screen and (max-width: 350px){
+    #chutes{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+}
