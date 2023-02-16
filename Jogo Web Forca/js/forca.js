@@ -149,6 +149,17 @@ function restart() {
     console.clear();
     console.log(palavra);
     espacosFront()
+    if (tentativas == 8) {
+        head.classList.remove("head")
+        torso.classList.remove("torso")
+        leftarm.classList.remove("leftarm")
+        rightarm.classList.remove("rightarm")
+        leftleg.classList.remove("leftleg")
+        leftfoot.classList.remove("leftfoot")
+        rightleg.classList.remove("rightleg")
+        rightfoot.classList.remove("rightfoot")
+
+    }
 
 }
 function clearInput() {
