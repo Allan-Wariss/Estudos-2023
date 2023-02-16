@@ -1,5 +1,5 @@
 
-var liPalavras = ["ABACATI","UVA", "BANANA"];
+var liPalavras = ["ABACATI","UVA", "BANANA", "ALLAN"];
 var save = liPalavras
 var pal_sort = Math.floor(Math.random() * liPalavras.length);
 var palavraStr = liPalavras[pal_sort];
@@ -20,8 +20,6 @@ function espacoGerar() {
     return espaco;
 }
 espacoGerar()
-
-
 
 // function espacoPrint(){
 //     for(i = 0; i < palavra.length; i++){
