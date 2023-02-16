@@ -1,7 +1,7 @@
 .wrapper {
     width: 300px;
     height: 300px;
-    display: block;
+    display: flex;
     position: relative;
     bottom: 10vh;
 }
