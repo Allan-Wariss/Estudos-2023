@@ -52,6 +52,7 @@ function verificar (){
     for (i = 0; i < palavra.length; i++){
         if (palavra[i].includes(jogada)){
             tela.children[i].innerHTML = jogada
+            tela.children[i].classList.add("verde")
             espaco.splice(i,palavra[i].length,jogada);
             console.log("Acertou");
         }
@@ -64,19 +65,29 @@ function verificar (){
     return (espaco, tentativas);
 }
 
+function ganhou(){
+    alert("Parabéns!! Você GANHOU!")
+}
+
 function main () {
     input.select()
+    if(input.value == ""){
+        alert("Não deixe o campo vazio.")
+        return
+    }
     if (tentativas > 0){
         jogada = input.value;
         verificar();
         console.log(espaco);
         if (JSON.stringify(espaco) === JSON.stringify(palavra)){
             console.log("GANHOU!!!!");
+            setTimeout(ganhou, 430);
             tentativas = 0;
         }
     }
     else{
         console.log("Enforcou! PERDEU!");
+        alert("Enforcou! PERDEU! Tente novamente.")
     }
  
 }

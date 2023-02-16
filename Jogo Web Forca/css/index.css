@@ -18,7 +18,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 70vh;
-    gap: 2rem;
+    gap: 5%;
 }
 
 ul{
@@ -36,6 +36,11 @@ ul{
     background-color: crimson;
     width: 4rem;
     height: 4rem;
+    transition: 0.5s;
+}
+
+.verde{
+    background-color: rgb(0, 193, 29) !important;
 }
 
 #chutes{
