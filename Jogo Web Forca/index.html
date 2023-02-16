@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Forca</title>
+</head>
+<body>
+    <ul id="tela">
+    </ul>
+
+    <div id="chutes">
+        <label for="letra">Chute</label>
+        <input id="letra" type="text"  name="letra" type="text" maxlength="1" 
+        oninput="this.value = this.value.toUpperCase()"
+        style="width: 2.5rem; padding-left: 2.5rem;" placeholder="...">
+        <button id="chutes__tentar-button" onclick="main(),clearInput()">Tentar</button>
+        <button id="chutes__reniciar-button" onclick="restart()">Reniciar</button>
+        <script src="/js/forca.js"></script>
+    </div>
+</body>
+</html>
