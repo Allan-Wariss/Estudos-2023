@@ -88,6 +88,7 @@ function main () {
     else{
         console.log("Enforcou! PERDEU!");
         alert("Enforcou! PERDEU! Tente novamente.")
+        restart()
     }
  
 }
