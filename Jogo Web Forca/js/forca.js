@@ -99,7 +99,7 @@ function main() {
             tentativas = -1;
         }
     }
-    else {
+    if (tentativas == 0) {
         console.log("Enforcou! PERDEU!");
         alert("PERDEU! A palavra era: "+palavraStr)
         restart()
