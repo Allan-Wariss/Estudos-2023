@@ -101,7 +101,7 @@ function main() {
     }
     else {
         console.log("Enforcou! PERDEU!");
-        alert("Enforcou! PERDEU! Tente novamente.")
+        alert("PERDEU! A palavra era: "+palavraStr)
         restart()
     }
 
