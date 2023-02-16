@@ -1,5 +1,4 @@
-
-var liPalavras = ["ABACATE","UVA", "BANANA", "ALLAN"];
+var liPalavras = ["ABACATE", "UVA", "BANANA", "ALLAN"];
 var save = liPalavras
 var pal_sort = Math.floor(Math.random() * liPalavras.length);
 var palavraStr = liPalavras[pal_sort];
@@ -23,7 +22,7 @@ var rightfoot = document.getElementById("rightfoot")
 input.select()
 
 function espacoGerar() {
-    for (i = 0; i < palavra.length; i++){
+    for (i = 0; i < palavra.length; i++) {
         espaco.push("_");
     }
     return espaco;
@@ -38,9 +37,9 @@ espacoGerar()
 // espacoPrint()
 
 // Gerar espaços da palavra secreta no Front
-function espacosFront(){
-    
-    for (var j = 0; j < palavra.length; j++){ 
+function espacosFront() {
+
+    for (var j = 0; j < palavra.length; j++) {
         li = document.createElement("li");
         li.innerHTML = espaco[j]
         tela.appendChild(li);
@@ -48,58 +47,58 @@ function espacosFront(){
 }
 espacosFront()
 
-function removeEspacosFront(){
+function removeEspacosFront() {
     while (tela.hasChildNodes()) {
         tela.removeChild(tela.firstChild);
-      }
+    }
 }
 
 
-function verificar (){
-    for (i = 0; i < palavra.length; i++){
-        if (palavra[i].includes(jogada)){
+function verificar() {
+    for (i = 0; i < palavra.length; i++) {
+        if (palavra[i].includes(jogada)) {
             tela.children[i].innerHTML = jogada
             tela.children[i].classList.add("verde")
-            espaco.splice(i,palavra[i].length,jogada);
+            espaco.splice(i, palavra[i].length, jogada);
             console.log("Acertou");
         }
     }
-    if (!(palavra.includes(jogada))){
-        tentativas -=1;
+    if (!(palavra.includes(jogada))) {
+        tentativas -= 1;
         console.log("Errou! Faltam", tentativas, "Tentativas");
     }
 
     return (espaco, tentativas);
 }
 
-function ganhou(){
+function ganhou() {
     alert("Parabéns!! Você GANHOU!")
 }
 
 
-function main () {
+function main() {
     input.select()
-    if(input.value == ""){
+    if (input.value == "") {
         alert("Não deixe o campo vazio.")
         return
     }
-    if (tentativas > 1){
+    if (tentativas > 1) {
         jogada = input.value;
         verificar();
         console.log(espaco);
-        if (JSON.stringify(espaco) === JSON.stringify(palavra)){
+        if (JSON.stringify(espaco) === JSON.stringify(palavra)) {
             console.log("GANHOU!!!!");
             setTimeout(ganhou, 430);
             tentativas = -1;
         }
     }
-    else{
+    else {
         console.log("Enforcou! PERDEU!");
         alert("Enforcou! PERDEU! Tente novamente.")
         restart()
     }
 
-    if (tentativas == 8){
+    if (tentativas == 8) {
         head.classList.remove("head")
         torso.classList.remove("torso")
         leftarm.classList.remove("leftarm")
@@ -110,31 +109,31 @@ function main () {
         rightfoot.classList.remove("rightfoot")
 
     }
-    else if (tentativas == 7){
+    else if (tentativas == 7) {
         head.classList.add("head")
     }
-    else if (tentativas == 6){
+    else if (tentativas == 6) {
         torso.classList.add("torso")
     }
-    else if (tentativas == 5){
+    else if (tentativas == 5) {
         leftarm.classList.add("leftarm")
     }
-    else if (tentativas == 4){
+    else if (tentativas == 4) {
         rightarm.classList.add("rightarm")
     }
-    else if (tentativas == 3){
+    else if (tentativas == 3) {
         leftleg.classList.add("leftleg")
     }
-    else if (tentativas == 2){
+    else if (tentativas == 2) {
         leftfoot.classList.add("leftfoot")
     }
-    else if (tentativas == 1){
+    else if (tentativas == 1) {
         rightleg.classList.add("rightleg")
     }
-    else if (tentativas == 0){
+    else if (tentativas == 0) {
         rightfoot.classList.add("rightfoot")
     }
- 
+
 }
 
 function restart() {
@@ -150,11 +149,8 @@ function restart() {
     console.clear();
     console.log(palavra);
     espacosFront()
-    
+
 }
 function clearInput() {
     input.value = ""
 }
-
-// console.log(palavra.length);
-console.log(palavra);

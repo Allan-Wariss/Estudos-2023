@@ -13,6 +13,14 @@
 <body>
     <ul id="tela">
     </ul>
+    <div id="chutes">
+        <label for="letra">Chute</label>
+        <input id="letra" type="text" name="letra" type="text" maxlength="1"
+            oninput="this.value = this.value.toUpperCase()" style="width: 2.5rem; padding-left: 2.5rem;"
+            placeholder="...">
+        <button id="chutes__tentar-button" onclick="main(),clearInput()">Tentar</button>
+        <button id="chutes__reniciar-button" onclick="restart()">Reiniciar</button>
+    </div>
 
     <div class="wrapper">
         <div class="hidden" id="head"></div>
@@ -24,17 +32,9 @@
         <div class="hidden" id="rightleg"></div>
         <div class="hidden" id="rightfoot"></div>
     </div>
-
-    <div id="chutes">
-        <label for="letra">Chute</label>
-        <input id="letra" type="text" name="letra" type="text" maxlength="1"
-            oninput="this.value = this.value.toUpperCase()" style="width: 2.5rem; padding-left: 2.5rem;"
-            placeholder="...">
-        <button id="chutes__tentar-button" onclick="main(),clearInput()">Tentar</button>
-        <button id="chutes__reniciar-button" onclick="restart()">Reiniciar</button>
-        <script src="/js/forca.js"></script>
-    </div>
-    <script>
+    <script src="/js/forca.js"></script>
+   
+    <!-- <script>
         var liPalavras = ["ABACATE", "UVA", "BANANA", "ALLAN"];
         var save = liPalavras
         var pal_sort = Math.floor(Math.random() * liPalavras.length);
@@ -191,7 +191,7 @@
         function clearInput() {
             input.value = ""
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
