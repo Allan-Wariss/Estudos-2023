@@ -119,6 +119,9 @@ ul{
 }
 
 @media screen and (max-width: 350px){
+    #tela {
+        height: 40vh;
+    }
     #chutes{
         display: flex;
         flex-direction: column;
