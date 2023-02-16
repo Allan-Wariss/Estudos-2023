@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+a{
+    text-decoration: none;
+}
+
 body{
     background-color: orange;
     font-family: Arial, Helvetica, sans-serif;
@@ -78,6 +82,10 @@ ul{
     border-radius: 16px;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 #chutes__tentar-button{
     border: none;
     color: white;
@@ -119,6 +127,32 @@ ul{
     transition: 0s;
 
 }
+
+footer{
+    width: 100%;
+    height: fit-content;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    align-items: center;
+    justify-content: end;
+}
+
+footer > p >a{
+    color: white;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+footer > :nth-child(2){
+    
+}
+
+
 @media screen and (max-width: 700px){
     #tela {
         height: 40vh;
