@@ -89,7 +89,7 @@ function main() {
         alert("Não deixe o campo vazio.")
         return
     }
-    if (tentativas > 1) {
+    if (tentativas >= 1) {
         jogada = input.value;
         verificar();
         console.log(espaco);

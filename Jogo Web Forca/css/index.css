@@ -148,10 +148,6 @@ footer > p >a{
     gap: 3px;
 }
 
-footer > :nth-child(2){
-    
-}
-
 
 @media screen and (max-width: 700px){
     #tela {
