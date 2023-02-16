@@ -82,6 +82,10 @@ function ganhou() {
     alert("Parabéns!! Você GANHOU!")
 }
 
+function perdeu() {
+    alert("PERDEU! A palavra era: "+palavraStr)
+}
+
 
 function main() {
     input.select()
@@ -98,11 +102,6 @@ function main() {
             setTimeout(ganhou, 430);
             tentativas = -1;
         }
-    }
-    if (tentativas == 0) {
-        console.log("Enforcou! PERDEU!");
-        alert("PERDEU! A palavra era: "+palavraStr)
-        restart()
     }
 
     if (tentativas == 8) {
@@ -139,6 +138,12 @@ function main() {
     }
     else if (tentativas == 0) {
         rightfoot.classList.add("rightfoot")
+    }
+
+    if (tentativas == 0) {
+        console.log("Enforcou! PERDEU!");
+        setTimeout(perdeu, 430)
+        setTimeout(restart,450)
     }
 
 }
