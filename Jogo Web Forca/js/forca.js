@@ -1,30 +1,55 @@
-var liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
-"sucinto", "inferir", "apatico", "acepção", "astucia", "redimir", "recesso", "estigma", "cultura", "refutar",
-"virtude", "cinismo", "exortar", "soberba", "trivial", "mitigar", "cordial", "aspecto", "imputar", "emergir",
- "sucesso", "alegria", "deboche", "candura", "ademais", "excerto", "almejar", "orgulho", "contudo", "oriundo",
-"alcunha", "austero", "coragem", "salutar", "sensato", "quimera", "excesso", "fomento", "saudade", "escroto",
-"erudito", "modesto", "parcial", "conciso", "amizade", "colosso", "demanda",
-"padecer", "piedade", "racismo", "vigente", "emotivo", "intenso", "auferir", "exilado", "bizarro", "profano",
-"ansioso", "colapso"];
-var save = liPalavras
-var pal_sort = Math.floor(Math.random() * liPalavras.length);
-var palavraStr = liPalavras[pal_sort].toUpperCase();
-var palavra = palavraStr.split('');
-var input = document.querySelector("#letra")
-let tentativas = 8;
+var liPalavras = undefined;
+var save = undefined;
+var pal_sort = undefined;
+var palavraStr = undefined;
+var palavra = undefined;
+var input = undefined;
+let tentativas = undefined;
 let jogada = undefined;
 let espaco = [];
-var tela = document.getElementById("tela");
-var li = document.createElement("li");
-var head = document.getElementById("head")
-var torso = document.getElementById("torso")
-var leftarm = document.getElementById("leftarm")
-var rightarm = document.getElementById("rightarm")
-var leftleg = document.getElementById("leftleg")
-var leftfoot = document.getElementById("leftfoot")
-var rightleg = document.getElementById("rightleg")
-var rightfoot = document.getElementById("rightfoot")
+var tela = undefined;
+var li = undefined;
+var head = undefined;
+var torso = undefined;
+var leftarm = undefined;
+var rightarm = undefined;
+var leftleg = undefined;
+var leftfoot = undefined;
+var rightleg = undefined;
+var rightfoot = undefined;
 
+function padrao(){
+    liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
+    "sucinto", "inferir", "apatico", "acepção", "astucia", "redimir", "recesso", "estigma", "cultura", "refutar",
+    "virtude", "cinismo", "exortar", "soberba", "trivial", "mitigar", "cordial", "aspecto", "imputar", "emergir",
+    "sucesso", "alegria", "deboche", "candura", "ademais", "excerto", "almejar", "orgulho", "contudo", "oriundo",
+    "alcunha", "austero", "coragem", "salutar", "sensato", "quimera", "excesso", "fomento", "saudade", "escroto",
+    "erudito", "modesto", "parcial", "conciso", "amizade", "colosso", "demanda",
+    "padecer", "piedade", "racismo", "vigente", "emotivo", "intenso", "auferir", "exilado", "bizarro", "profano",
+    "ansioso", "colapso"];
+    save = liPalavras
+    pal_sort = Math.floor(Math.random() * liPalavras.length);
+    palavraStr = liPalavras[pal_sort].toUpperCase();
+    palavra = palavraStr.split('');
+    input = document.querySelector("#letra")
+    tentativas = 8;
+    jogada = undefined;
+    espaco = [];
+    tela = document.getElementById("tela");
+    li = document.createElement("li");
+    head = document.getElementById("head")
+    torso = document.getElementById("torso")
+    leftarm = document.getElementById("leftarm")
+    rightarm = document.getElementById("rightarm")
+    leftleg = document.getElementById("leftleg")
+    leftfoot = document.getElementById("leftfoot")
+    rightleg = document.getElementById("rightleg")
+    rightfoot = document.getElementById("rightfoot")
+
+    return liPalavras, save, pal_sort, palavraStr, palavra, input, tentativas, jogada, espaco, tela, li, head, torso, leftarm, rightarm, leftleg,
+    leftfoot, rightleg, rightfoot
+}
+padrao()
 
 input.select()
 
@@ -150,13 +175,7 @@ function main() {
 
 function restart() {
     removeEspacosFront()
-    liPalavras = save;
-    pal_sort = Math.floor(Math.random() * liPalavras.length);
-    palavraStr = liPalavras[pal_sort].toUpperCase();
-    palavra = palavraStr.split('');
-    tentativas = 8;
-    jogada = undefined;
-    espaco = []
+    padrao()
     espacoGerar();
     console.clear();
     console.log(palavra);
