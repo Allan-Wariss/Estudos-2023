@@ -12,7 +12,30 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+   
+}
+
+header{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 6vh;
+}
+
+header > button{
+    color: white;
+    font-weight: bold;
+    background-color: rgb(0, 132, 255);
+    border: none;
+    border-radius: 1rem;
+    margin: 0 3rem 0 0 ;
+    width: 4rem;
+    height: 80%;
+}
+
+#game__main{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -23,7 +46,7 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 30vh;
+    height: 23vh;
     gap: 2%;
 }
 
@@ -39,7 +62,8 @@ ul{
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
-    background-color: crimson;
+    border: 0.25rem solid crimson;
+    background-color: rgb(148, 7, 35);
     width: 4rem;
     height: 4rem;
     transition: 0.5s;
@@ -47,6 +71,8 @@ ul{
 
 .verde{
     background-color: rgb(0, 193, 29) !important;
+    border: 0.25rem solid rgb(1, 211, 32) !important;
+
 }
 
 #chutes{
@@ -65,6 +91,9 @@ ul{
 
 #letra{
     color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: start;
+    align-items: start;
     height: 1.7rem;
     background-color: rgb(203, 132, 0);
     box-shadow: 0 0 0 0;
@@ -73,6 +102,10 @@ ul{
     border-radius: 16px;
     outline: 0;
     transition: 0.4s;
+}
+
+#letra::placeholder{
+    text-align: start;
 }
 
 #letra:focus{
@@ -111,7 +144,7 @@ button:hover{
     border: none;
     color: white;
     font-weight: bold;
-    background-color: rgb(0, 193, 29);
+    background-color: rgb(1, 211, 32);
     border-radius: 18px;
     padding: 0.5rem;
     transition: 0.3s;
@@ -134,7 +167,6 @@ footer{
     color: white;
     display: flex;
     flex-direction: column;
-    position: sticky;
     align-items: center;
     justify-content: end;
 }

@@ -7,30 +7,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/stickman.css">
+    <link rel="stylesheet" href="css/login-popup.css">
     <title>Forca</title>
 </head>
 
 <body>
-    <ul id="tela">
-    </ul>
-    <div id="chutes">
-        <label for="letra">Chute</label>
-        <input id="letra" type="text" name="letra" type="text" maxlength="1"
-            oninput="this.value = this.value.toUpperCase()" style="width: 2.5rem; padding-left: 2.5rem;"
-            placeholder="...">
-        <button id="chutes__tentar-button" onclick="main(),clearInput()">Tentar</button>
-        <button id="chutes__reniciar-button" onclick="restart()">Reiniciar</button>
-    </div>
+    <header> <button onclick="openPopup()">LOGAR</button></header>
 
-    <div class="wrapper">
-        <div class="hidden" id="head"></div>
-        <div class="hidden" id="torso"></div>
-        <div class="hidden" id="leftarm"></div>
-        <div class="hidden" id="rightarm"></div>
-        <div class="hidden" id="leftleg"></div>
-        <div class="hidden" id="leftfoot"></div>
-        <div class="hidden" id="rightleg"></div>
-        <div class="hidden" id="rightfoot"></div>
+
+    <main id="game__main">
+        <ul id="tela">
+        </ul>
+        <form id="chutes">
+            <label for="letra">Chute</label>
+            <input id="letra" type="text" name="letra" type="text" maxlength="1"
+                oninput="this.value = this.value.toUpperCase()" style="width: 2.5rem; padding-left: 2.5rem;"
+                placeholder="..." onsubmit="main()" onfocus="return false">
+            <button id="chutes__tentar-button" onclick="main(),clearInput() ;return false">Tentar</button>
+            <button id="chutes__reniciar-button" onclick="restart() ;return false">Reiniciar</button>
+        </form>
+
+        <div class="wrapper">
+            <div class="hidden" id="head"></div>
+            <div class="hidden" id="torso"></div>
+            <div class="hidden" id="leftarm"></div>
+            <div class="hidden" id="rightarm"></div>
+            <div class="hidden" id="leftleg"></div>
+            <div class="hidden" id="leftfoot"></div>
+            <div class="hidden" id="rightleg"></div>
+            <div class="hidden" id="rightfoot"></div>
+        </div>
+
+
+    </main>
+
+    <div class="login__popup">
+        <div onclick="openPopup()" class="login__popup-background"></div>
+        <main id="login__popup-content">
+            <div id="login__popup-close">
+                <button onclick="openPopup()">X</button>
+            </div>
+            <form id="login__popup-inputs">
+                <label for="user">Usuário</label>
+                <input placeholder="Antonio@email.com" type="email" name="user" id="user" required>
+                <label for="password">Senha</label>
+                <input placeholder="*****" type="password" name="password" id="password" required>
+                <button id="login__popup-login">LOGAR</button>
+            </form>
+
+            <button id="login__popup-register">CADASTRAR</button>
+        </main>
     </div>
 
     <footer>
@@ -38,35 +64,72 @@
         <p><a href="https://github.com/Allan-Wariss"><img src="img/iconmonstr-github-1.svg">Github</a></p>
     </footer>
     <!-- <script src="/js/forca.js"></script> -->
+    <!-- <script src="/js/popup.js"></script> -->
 
     <script>
-        var liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
-            "sucinto", "inferir", "apatico", "acepção", "astucia", "redimir", "recesso", "estigma", "cultura", "refutar",
-            "virtude", "cinismo", "exortar", "soberba", "trivial", "mitigar", "cordial", "aspecto", "imputar", "emergir",
-            "sucesso", "alegria", "deboche", "candura", "ademais", "excerto", "almejar", "orgulho", "contudo", "oriundo",
-            "alcunha", "austero", "coragem", "salutar", "sensato", "quimera", "excesso", "fomento", "saudade", "escroto",
-            "erudito", "modesto", "parcial", "conciso", "amizade", "colosso", "demanda",
-            "padecer", "piedade", "racismo", "vigente", "emotivo", "intenso", "auferir", "exilado", "bizarro", "profano",
-            "ansioso", "colapso"];
-        var save = liPalavras
-        var pal_sort = Math.floor(Math.random() * liPalavras.length);
-        var palavraStr = liPalavras[pal_sort].toUpperCase();
-        var palavra = palavraStr.split('');
-        var input = document.querySelector("#letra")
-        let tentativas = 8;
+        var popup = document.querySelector(".login__popup")
+        var popupBackground = document.querySelector(".login__popup-background")
+
+
+        function openPopup() {
+            popup.classList.toggle("login__popup-open")
+            popupBackground.classList.toggle("login__popup-background-open")
+        }
+    </script>
+
+    <script>
+        var liPalavras = undefined;
+        var save = undefined;
+        var pal_sort = undefined;
+        var palavraStr = undefined;
+        var palavra = undefined;
+        var input = undefined;
+        let tentativas = undefined;
         let jogada = undefined;
         let espaco = [];
-        var tela = document.getElementById("tela");
-        var li = document.createElement("li");
-        var head = document.getElementById("head")
-        var torso = document.getElementById("torso")
-        var leftarm = document.getElementById("leftarm")
-        var rightarm = document.getElementById("rightarm")
-        var leftleg = document.getElementById("leftleg")
-        var leftfoot = document.getElementById("leftfoot")
-        var rightleg = document.getElementById("rightleg")
-        var rightfoot = document.getElementById("rightfoot")
+        var tela = undefined;
+        var li = undefined;
+        var head = undefined;
+        var torso = undefined;
+        var leftarm = undefined;
+        var rightarm = undefined;
+        var leftleg = undefined;
+        var leftfoot = undefined;
+        var rightleg = undefined;
+        var rightfoot = undefined;
 
+        function padrao() {
+            liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
+                "sucinto", "inferir", "apatico", "acepção", "astucia", "redimir", "recesso", "estigma", "cultura", "refutar",
+                "virtude", "cinismo", "exortar", "soberba", "trivial", "mitigar", "cordial", "aspecto", "imputar", "emergir",
+                "sucesso", "alegria", "deboche", "candura", "ademais", "excerto", "almejar", "orgulho", "contudo", "oriundo",
+                "alcunha", "austero", "coragem", "salutar", "sensato", "quimera", "excesso", "fomento", "saudade", "escroto",
+                "erudito", "modesto", "parcial", "conciso", "amizade", "colosso", "demanda",
+                "padecer", "piedade", "racismo", "vigente", "emotivo", "intenso", "auferir", "exilado", "bizarro", "profano",
+                "ansioso", "colapso"];
+            save = liPalavras
+            pal_sort = Math.floor(Math.random() * liPalavras.length);
+            palavraStr = liPalavras[pal_sort].toUpperCase();
+            palavra = palavraStr.split('');
+            input = document.querySelector("#letra")
+            tentativas = 8;
+            jogada = undefined;
+            espaco = [];
+            tela = document.getElementById("tela");
+            li = document.createElement("li");
+            head = document.getElementById("head")
+            torso = document.getElementById("torso")
+            leftarm = document.getElementById("leftarm")
+            rightarm = document.getElementById("rightarm")
+            leftleg = document.getElementById("leftleg")
+            leftfoot = document.getElementById("leftfoot")
+            rightleg = document.getElementById("rightleg")
+            rightfoot = document.getElementById("rightfoot")
+
+            return liPalavras, save, pal_sort, palavraStr, palavra, input, tentativas, jogada, espaco, tela, li, head, torso, leftarm, rightarm, leftleg,
+                leftfoot, rightleg, rightfoot
+        }
+        padrao()
 
         input.select()
 
@@ -192,13 +255,7 @@
 
         function restart() {
             removeEspacosFront()
-            liPalavras = save;
-            pal_sort = Math.floor(Math.random() * liPalavras.length);
-            palavraStr = liPalavras[pal_sort].toUpperCase();
-            palavra = palavraStr.split('');
-            tentativas = 8;
-            jogada = undefined;
-            espaco = []
+            padrao()
             espacoGerar();
             console.clear();
             console.log(palavra);

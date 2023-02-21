@@ -1,0 +1,148 @@
+.login__popup{
+    font-weight: bold;
+    color: white;
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    bottom: 7000px;
+    transition: 1s;
+}
+
+
+
+.login__popup-background{
+    display: flex;
+    position: fixed;
+    background-color: rgba(255, 0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+    transition: backdrop-filter 3s ease, background-color 3s ease;
+    
+    bottom: 7000px;
+}
+
+.login__popup-open{
+    font-weight: bold;
+    color: white;
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    bottom: 0px;
+    transition: 1s;
+    z-index: 1;
+}
+
+.login__popup-background-open{
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(39, 39, 39, 0.633);
+    backdrop-filter: blur(10px);
+    transition: backdrop-filter 3s ease, background-color 3s ease;
+    
+    bottom: 0px;
+}
+
+::placeholder{
+    text-align: center;
+}
+
+
+#login__popup-content{
+    background-color: brown;
+    border-radius: 1rem;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 50vw;
+    height: 50vh;
+    padding-bottom: 2%;
+    gap: 5%;
+}
+
+#login__popup-close{
+    display: flex;
+    justify-content: end;
+    padding: right 1rem; 
+    width: 100%;
+    height: 10%;
+    margin-bottom: 6%;
+}
+
+#login__popup-close > button{
+    font-weight: bold;
+    color: white;
+    background-color: rgb(18, 18, 18);
+    width: 2rem;
+    border: none;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    transition: 0.2s;
+}
+
+#login__popup-close > button:hover{
+    color: black;
+    background: white;
+}
+
+#login__popup-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: fit-content;
+}
+
+#login__popup-inputs > input{
+    border: none;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 5%;
+}
+
+#login__popup-login{
+    font-weight: bold;
+    color: white;
+    background-color: orange;
+    border: 0.1rem solid white;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: 0.2s;
+}
+
+#login__popup-login:hover{
+    color: orange;
+    background-color: rgb(124, 31, 31);
+    border: 0.1rem solid orange;
+}
+
+#login__popup-register{
+    font-weight: bold;
+    color: white;
+    background-color: rgb(0, 237, 0);
+    border: 0.1rem solid white;
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: 0.2s;
+}
+
+#login__popup-register:hover{
+    color: rgb(0, 237, 0);
+    background-color: rgb(124, 31, 31);
+    border: 0.1rem solid rgb(0, 237, 0);
+}
+
+
+@media screen and (max-width: 350px){
+    #login__popup-content{
+        width: 70vw;
+    }
+}
