@@ -111,9 +111,6 @@ function verificar() {
     }
 
 
-    
-   
-
     if (!(palavra.includes(jogada))) {
         tentativas -= 1;
         console.log("Errou! Faltam", tentativas, "Tentativas");
