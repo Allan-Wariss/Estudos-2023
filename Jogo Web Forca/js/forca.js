@@ -17,6 +17,7 @@ var leftleg = undefined;
 var leftfoot = undefined;
 var rightleg = undefined;
 var rightfoot = undefined;
+var letras_afbt = undefined
 
 function padrao(){
     liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
@@ -45,9 +46,10 @@ function padrao(){
     leftfoot = document.getElementById("leftfoot")
     rightleg = document.getElementById("rightleg")
     rightfoot = document.getElementById("rightfoot")
+    letras_afbt  = document.querySelector(".letras__afbt")
 
     return liPalavras, save, pal_sort, palavraStr, palavra, input, tentativas, jogada, espaco, tela, li, head, torso, leftarm, rightarm, leftleg,
-    leftfoot, rightleg, rightfoot
+    leftfoot, rightleg, rightfoot, letras_afbt
 }
 padrao()
 
@@ -93,8 +95,25 @@ function verificar() {
             tela.children[i].classList.add("verde")
             espaco.splice(i, palavra[i].length, jogada);
             console.log("Acertou");
+            for (j = 0; j < letras_afbt.children.length; j++) {
+                if (letras_afbt.children[j].innerHTML == input.value) {
+                    letras_afbt.children[j].classList.add("letras__afbt-acertada")
+                }
+            }
+        }
+        else{
+            for (j = 0; j < letras_afbt.children.length; j++) {
+                if (letras_afbt.children[j].innerHTML == input.value) {
+                    letras_afbt.children[j].classList.add("letras__afbt-usada")
+                }
+            }
         }
     }
+
+
+    
+   
+
     if (!(palavra.includes(jogada))) {
         tentativas -= 1;
         console.log("Errou! Faltam", tentativas, "Tentativas");
