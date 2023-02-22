@@ -205,7 +205,8 @@ function restart() {
         leftfoot.classList.remove("leftfoot")
         rightleg.classList.remove("rightleg")
         rightfoot.classList.remove("rightfoot")
-
+        letras_afbt.children.classList.remove("letras__afbt-acertada")
+        letras_afbt.children.classList.remove("letras__afbt-usada")
     }
 
 }

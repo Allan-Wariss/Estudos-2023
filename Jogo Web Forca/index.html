@@ -19,8 +19,32 @@
         <ul id="tela">
         </ul>
         <ul class="letras__afbt">
-            <li>A</li> <li>B</li> <li>C</li> <li>D</li> <li>E</li> <li>F</li> <li>G</li> <li>H</li> <li>I</li> <li>J</li> <li>K</li> <li>L</li> <li>M</li> <li>N</li>
-            <li>O</li> <li>P</li> <li>Q</li> <li>R</li> <li>S</li> <li>T</li> <li>U</li> <li>V</li> <li>W</li> <li>X</li> <li>Y</li> <li>Z</li>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+            <li>F</li>
+            <li>G</li>
+            <li>H</li>
+            <li>I</li>
+            <li>J</li>
+            <li>K</li>
+            <li>L</li>
+            <li>M</li>
+            <li>N</li>
+            <li>O</li>
+            <li>P</li>
+            <li>Q</li>
+            <li>R</li>
+            <li>S</li>
+            <li>T</li>
+            <li>U</li>
+            <li>V</li>
+            <li>W</li>
+            <li>X</li>
+            <li>Y</li>
+            <li>Z</li>
         </ul>
         <form id="chutes">
             <label for="letra">Chute</label>
@@ -101,6 +125,7 @@
         var leftfoot = undefined;
         var rightleg = undefined;
         var rightfoot = undefined;
+        var letras_afbt = undefined
 
         function padrao() {
             liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
@@ -129,9 +154,10 @@
             leftfoot = document.getElementById("leftfoot")
             rightleg = document.getElementById("rightleg")
             rightfoot = document.getElementById("rightfoot")
+            letras_afbt = document.querySelector(".letras__afbt")
 
             return liPalavras, save, pal_sort, palavraStr, palavra, input, tentativas, jogada, espaco, tela, li, head, torso, leftarm, rightarm, leftleg,
-                leftfoot, rightleg, rightfoot
+                leftfoot, rightleg, rightfoot, letras_afbt
         }
         padrao()
 
@@ -177,8 +203,22 @@
                     tela.children[i].classList.add("verde")
                     espaco.splice(i, palavra[i].length, jogada);
                     console.log("Acertou");
+                    for (j = 0; j < letras_afbt.children.length; j++) {
+                        if (letras_afbt.children[j].innerHTML == input.value) {
+                            letras_afbt.children[j].classList.add("letras__afbt-acertada")
+                        }
+                    }
+                }
+                else {
+                    for (j = 0; j < letras_afbt.children.length; j++) {
+                        if (letras_afbt.children[j].innerHTML == input.value) {
+                            letras_afbt.children[j].classList.add("letras__afbt-usada")
+                        }
+                    }
                 }
             }
+
+
             if (!(palavra.includes(jogada))) {
                 tentativas -= 1;
                 console.log("Errou! Faltam", tentativas, "Tentativas");
@@ -273,7 +313,8 @@
                 leftfoot.classList.remove("leftfoot")
                 rightleg.classList.remove("rightleg")
                 rightfoot.classList.remove("rightfoot")
-
+                letras_afbt.children.classList.remove("letras__afbt-acertada")
+                letras_afbt.children.classList.remove("letras__afbt-usada")
             }
 
         }
