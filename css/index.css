@@ -46,8 +46,9 @@ header > button{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 23vh;
+    height: fit-content;
     gap: 2%;
+    margin-bottom:5% ;
 }
 
 ul{
@@ -66,6 +67,46 @@ ul{
     background-color: rgb(148, 7, 35);
     width: 4rem;
     height: 4rem;
+    transition: 0.5s;
+}
+
+.letras__afbt{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: fit-content;
+    gap: 1%;
+}
+
+.letras__afbt > li {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.6rem;
+    border: 0.15rem solid rgb(58, 58, 58);
+    background-color: rgb(71, 71, 71);
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1%;
+    transition: 0.5s;
+}
+
+.letras__afbt-usada {
+    border-radius: 0.6rem;
+    background-color: rgb(255, 196, 0) !important;
+    border: 0.15rem solid rgb(240, 184, 0) !important;
+    transition: 0.5s;
+}
+
+.letras__afbt-acertada {
+    background-color: rgb(0, 193, 29) !important;
+    border: 0.15rem solid rgb(1, 211, 32) !important;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1%;
     transition: 0.5s;
 }
 
@@ -182,8 +223,17 @@ footer > p >a{
 
 
 @media screen and (max-width: 700px){
-    #tela {
-        height: 40vh;
+    #tela > li {
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.6rem;
+        border: 0.15rem solid crimson;
+        background-color: rgb(148, 7, 35);
+        width: 2.5rem;
+        height: 2.5rem;
+        transition: 0.5s;
     }
 }
 
