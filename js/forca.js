@@ -183,8 +183,9 @@ function main() {
 
     if (tentativas == 0) {
         console.log("Enforcou! PERDEU!");
-        setTimeout(perdeu, 430)
         setTimeout(restart,450)
+        setTimeout(perdeu, 430)
+
     }
 
 }
@@ -205,8 +206,10 @@ function restart() {
         leftfoot.classList.remove("leftfoot")
         rightleg.classList.remove("rightleg")
         rightfoot.classList.remove("rightfoot")
-        letras_afbt.children.classList.remove("letras__afbt-acertada")
-        letras_afbt.children.classList.remove("letras__afbt-usada")
+        for (j = 0; j < letras_afbt.children.length; j++) {
+                letras_afbt.children[j].classList.remove("letras__afbt-usada")
+                letras_afbt.children[j].classList.remove("letras__afbt-acertada")
+        }
     }
 
 }
