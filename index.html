@@ -126,6 +126,7 @@
         var rightleg = undefined;
         var rightfoot = undefined;
         var letras_afbt = undefined
+        var audio = new Audio('audio.mp3');
 
         function padrao() {
             liPalavras = ["melancia", "banana", "uva", "empatia", "embuste", "verbete", "sublime",
@@ -228,7 +229,9 @@
         }
 
         function ganhou() {
+            audio.play()
             alert("Parabéns!! Você GANHOU!")
+
         }
 
         function perdeu() {
